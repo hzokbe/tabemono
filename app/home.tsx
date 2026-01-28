@@ -1,10 +1,23 @@
-import FoodCard from "@/components/food/FoodCard";
+import MealCard from "@/components/meal/MealCard";
+import { Food } from "@/type/food/Food";
+import { randomUUID } from "expo-crypto";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomePage() {
+  const foods: Food[] = [
+    {
+      id: randomUUID(),
+      name: "Pizza de Calabresa",
+      carbs: 25,
+      protein: 12,
+      fat: 11,
+    },
+    { id: randomUUID(), name: "Coca-Cola", carbs: 27, protein: 0, fat: 0 },
+  ];
+
   return (
     <SafeAreaView className="flex-1 bg-background-0">
-      <FoodCard name="Pizza" carbs={25} protein={12} fat={11} />
+      <MealCard name="Almoço" foods={foods} />
     </SafeAreaView>
   );
 }
