@@ -7,6 +7,8 @@ export default function RootLayout() {
     <GluestackUIProvider mode="dark">
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="home" />
+
+        <Stack.Screen name="sign-in" />
       </Stack>
     </GluestackUIProvider>
   );
