@@ -1,3 +1,4 @@
+import CaloriesCard from "@/components/calories/CaloriesCard";
 import MealCard from "@/components/meal/MealCard";
 import { Food } from "@/type/food/Food";
 import { randomUUID } from "expo-crypto";
@@ -16,7 +17,7 @@ export default function HomePage() {
     { id: randomUUID(), name: "Coca-Cola", carbs: 27, protein: 0, fat: 0 },
   ];
 
-  const isAuthenticated = false;
+  const isAuthenticated = true;
 
   if (!isAuthenticated) {
     return <Redirect href="/sign-in" />;
@@ -24,6 +25,8 @@ export default function HomePage() {
 
   return (
     <SafeAreaView className="flex-1 bg-background-0">
+      <CaloriesCard consumed={1800} total={2200} />
+
       <MealCard name="Almoço" foods={foods} />
     </SafeAreaView>
   );
