@@ -1,3 +1,4 @@
+import { Box } from "@/components/ui/box";
 import { Button, ButtonText } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import {
@@ -9,7 +10,8 @@ import {
 } from "@/components/ui/form-control";
 import { Heading } from "@/components/ui/heading";
 import { Input, InputField } from "@/components/ui/input";
-import { Redirect } from "expo-router";
+import { Text } from "@/components/ui/text";
+import { Redirect, router } from "expo-router";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -167,6 +169,19 @@ export default function SignUpPage() {
             </FormControlError>
           )}
         </FormControl>
+
+        <Box className="flex-row gap-1 mt-2">
+          <Text className="text-primary-800">Already have an account?</Text>
+
+          <Text
+            className="text-primary-900 font-bold"
+            onPress={() => {
+              router.replace("/sign-in");
+            }}
+          >
+            Sign In
+          </Text>
+        </Box>
 
         <Button
           className="w-fit self-end mt-4"
